@@ -145,7 +145,7 @@ Rebuild `asana/tasks.md` from [TASK_MANAGER]: every open task, one section per a
 
 Map: Checks off tasks you finished, with proof.
 
-For each open task of [YOUR_FIRST_NAME], look for proof that it is done: sent mail, chat, tonight's meetings, the form or page itself. Done with proof: tick it in [TASK_MANAGER] and add it, with the link to the proof, to the list for the daily review ("Ticked as done"). Likely done but unsure: list it under "Done? Reply yes to tick". Never tick the task of another person. Never change a due date without a yes.
+For each open task of [YOUR_FIRST_NAME], look for proof that it is done: sent mail, chat, tonight's meetings, the form or page itself. Done with proof: tick it in [TASK_MANAGER] and add it, with the link to the proof, to the list for the daily review ("Ticked as done"). Likely done but unsure: list it under "Done? Reply yes to tick". Never tick the task of another person. Read "What I have learned" in `scripts/task-predictions.md` first, and follow it. Record each change, ticked or redated, as one row of its Pending table: the date, the task link, the action, the reason, the evidence, your confidence. Move a soft due date (no outside deadline) only to a weekday with a free block at least as long as the task, and never move a real deadline.
 
 Leave this step out until [YOUR_FIRST_NAME] has said yes to it by memo.
 

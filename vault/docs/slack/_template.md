@@ -1,14 +1,19 @@
 ---
 type: chat-month
-date: YYYY-MM
-source: [CHAT_TOOL]
+updated: YYYY-MM-DD
+source: [CHAT_TOOL], written by the nightly sync from raw/slack/
 ---
 
-# [CHAT_TOOL], {Month YYYY}
+# Chat digest, {Month YYYY}
 
-## {Channel, or the people of the direct message}
+One section per conversation and night, newest night at the bottom. Quotes are exact. Secrets are never copied: write `[redacted]`.
+
+## {Mon D}
+
+### {Channel, or "DM: name", or "Group DM: names"}
 - People: [[people/first-last]], ...
 - Summary: two to four lines.
-- Decisions: ...
-- Open asks: ...
-- Link: {the permalink of the first message}
+- Decisions: {decision}, or none
+- Open asks: who owes what
+- Permalink: {link to the first message}
+- Raw: raw/slack/YYYY-MM-DD-{channel}.txt

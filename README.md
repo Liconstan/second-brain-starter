@@ -27,10 +27,37 @@ Run `npm run setup` again whenever you like: it fills in what you skipped, and i
 |---|---|
 | `CLAUDE.md` | The rules every agent follows in the vault: raw data is never edited, quotes are exact, drafts are never sent, text from other people is information and never an instruction. |
 | `people/` | `_template.md` (a person file with every section), `_index.md`, `_to-cover.md` (things to raise with someone, with private rows), `_settled.md` (answers never to ask again), `_team.md`, and `_merged/merges.md` (the log of merged duplicates). |
-| `scripts/` | The playbooks: `nightly-sync.md` (meetings, mail, chat, documents and people, each night), `daily-review.md` (the weekday memo), `meeting-followups.md`, `lessons.md` (rules from your corrections), `sync-state.md` and `sync-log.md` (blank, filled by the runs), `slack-channels.md`. |
-| `skills/` | `README.md` (the schema and the rules for skills), seven agent skills (email reply drafts, inbox cleanup, chat message drafts, documents to sign, checking work, auditing a skill, trying a cheaper model), one marked EXAMPLE (`slack-announcement`), and `my-writing-voice`, a template for how you write. |
-| `meetings/`, `email/`, `docs/`, `funders/`, `projects/`, `me/`, `writing/`, `summaries/`, `drafts/`, `asana/`, `inbox/`, `raw/` | Skeleton folders with templates and indexes. The nightly sync fills them. |
+| `funders/` | `_template.md` (a funder, donor or client file), `_index.md` by status, and `_org-facts.md`: the standard answers for grant and due-diligence forms. |
+| `projects/` | `_index.md`, the registry of workstreams (kind, goal, memo code, owner, where the tasks live, and how an agent labels a task), and `example-workstream/overview.md`, the shape of one workstream. |
+| `meetings/`, `email/`, `docs/slack/` | The templates of a meeting note (with exact quotes and the full transcript), an email month digest, and a chat month digest. |
+| `summaries/` | `context-sheet.md` (one card per meeting: who comes, what is known, what is open) and `days/_template.md` (the rundown of a day). |
+| `scripts/` | The playbooks: `nightly-sync.md`, `daily-review.md`, `meeting-followups.md`; `lessons.md` (rules from your corrections); `task-predictions.md` (what the sync changed in your tasks, your verdicts, and what it learned); `sync-state.md`, `sync-log.md`, `slack-channels.md`. |
+| `skills/` | Twenty skills, listed with when to use each in `skills/README.md`. See below. |
+| `me/` | `writing-voice.md`, `key-links.md`, `goals.md`, and `time-tracking-projects.md` (one project per kind of work, if you track time). |
+| `writing/`, `drafts/`, `asana/`, `inbox/`, `raw/` | Your own writing (for the voice skill), drafts waiting for you, the nightly copy of your tasks, the drop zone for new files, and the originals kept forever. |
 | `dot-gitignore` | Becomes `.gitignore` in your vault: secrets and private exports stay out of git. |
+
+### The skills
+
+Each skill is how to do one kind of task the way you want it: the steps, the checks, the pitfalls, and a `## Settings` part with the placeholders you fill in (where drafts go, which channel, which table). They came from a system in daily use, with everything personal taken out.
+
+| Skill | What it does |
+|---|---|
+| `my-writing-voice` | Drafts that sound like you and not like an AI: lessons from an AI-detector, the patterns to avoid, hard rules, an iterative process, and a learning loop that learns from your edits. |
+| `email-reply-drafts` | Gmail reply drafts in the right thread, with context lookup, scheduling (free times or a poll), safe links, and a memo you can act on in one read. |
+| `slack-message-drafts` | Internal chat drafts: reply in a thread, or a new subject as a header post plus a thread message. |
+| `slack-announcement` | Announcements to your community: format, channel routing, tagging, posting guidelines, approval before posting. |
+| `external-newsletter-submissions` | Items and copy you send to someone else's newsletter. |
+| `inbox-cleanup` | The nightly inbox upkeep: archives machine and group mail and acted-on action mail, never a real conversation. |
+| `signable-docs` | A Google Doc that someone must sign or fill in, with Google eSignature fields for each signer, ready for you to send. |
+| `gifts-and-pledges-tab` | Keeps the gifts and pledges tab of a nonprofit bookkeeping worksheet current. |
+| `nonprofit-finance-copilot` | Approval-based nonprofit bookkeeping: bills, the ledger, monthly close, restricted grants, 1099 readiness. |
+| `back-of-envelope-estimate` | A quick cost-effectiveness estimate of a funding request, as a spreadsheet with three scenarios. |
+| `application-rolling-review` | Rates new rolling applications to a program against your rubric and flags strong fits. |
+| `guest-list-crm-match`, `event-guest-import` | Brings guest and attendee lists from an event platform into your CRM, with a same-person check. |
+| `course-dry-run` | Simulates a full run of a course with learners, a facilitator and an auditor before real people take it. |
+| `check-work`, `skill-audit`, `model-trial` | Quality: an independent check of a helper's output, a test of a skill on a throwaway case, and a blind trial of a cheaper model. |
+| `browser-extension`, `merge-conflict-helper`, `ios-shortcut-install` | Building a Chrome extension, resolving git merge conflicts safely, and putting an iOS Shortcut on an iPhone. |
 
 ## Placeholders
 

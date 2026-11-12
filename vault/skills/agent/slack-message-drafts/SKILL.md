@@ -1,7 +1,7 @@
 ---
 name: slack-message-drafts
-description: "Use when you draft an internal chat message for [YOUR_FIRST_NAME] to send (to a teammate, a channel or a thread). Covers when to reply in an existing thread, and the one-draft format for a new subject: a header message on top and the thread message below."
-purpose: One chat draft in the voice of [YOUR_FIRST_NAME], in the right place, in the shape it is sent from without editing.
+description: "Use when you draft an internal Slack message for [YOUR_FIRST_NAME] to send (to a teammate, a channel or a thread). Covers reply or new thread, and the one-draft format: a formatted header on top and the thread message below."
+purpose: One Slack draft in the voice of [YOUR_FIRST_NAME], in the right place, in the shape it is sent from without editing.
 helper_model: opus medium
 model_why: the voice of [YOUR_FIRST_NAME] needs the strongest tier
 created_by: agent
@@ -10,15 +10,15 @@ last_used: [SYNC_START_DATE]
 source: the Memo starter kit
 ---
 
-# Internal chat message drafts
+# Internal Slack message drafts
 
 ## Goal
 
-[YOUR_FIRST_NAME] sends every chat message. Agents only make drafts, with the draft tool of the connector. A new subject is one draft that splits into a header post and a first thread reply, with nothing to delete in between.
+[YOUR_FIRST_NAME] sends every Slack message. Agents only make drafts with `slack_send_message_draft`, which renders bold, bullets, mentions and links. A new subject is one draft that [YOUR_FIRST_NAME] splits into a header post and a first thread reply, with nothing to delete in between.
 
 ## Settings
 
-- The chat tool: [CHAT_TOOL].
+- The chat tool: [CHAT_TOOL]. Default: Slack. With another tool, use its draft feature the same way, or put the text in the memo only.
 - Where a draft goes: [WHERE_TO_SEND_DRAFTS].
 - The internal channel of the team: [SLACK_CHANNEL_FOR_TEAM_UPDATES].
 - New subject format: header post plus thread reply (step 2). If [YOUR_FIRST_NAME] prefers one plain message, say so here: {header plus thread}.
@@ -29,33 +29,42 @@ source: the Memo starter kit
 
 ## When not to use
 
-- An announcement to everyone: the example skill `slack-announcement`.
+- Community announcements (funding, jobs, events, news): the hand-made skill in `skills/slack-announcement/`.
 
 ## Steps
 
 1. Decide: reply or new subject.
-   - Reply: the message answers someone in an existing thread, or the channel is a loose conversation. Draft it as one plain message, in the thread when there is one.
-   - New subject: the message starts a topic. Use the two-piece format of step 2.
-2. The two-piece format, in one draft:
-   - Top: the header message, short. An emoji, a bold title, and one line on what the thread is for. This becomes the top-level post.
-   - A blank line, then the thread message: the full content, with mentions, numbers and asks. [YOUR_FIRST_NAME] posts the header, opens its thread, and pastes this part as the first reply.
+   - Reply: the message answers someone in an existing thread, or the channel is a loose conversation with several people talking outside threads. Draft it as one plain message, in the thread when there is one (`thread_ts`).
+   - New subject: the message starts a topic [YOUR_FIRST_NAME] is establishing, or should establish to keep the channel tidy. Use the two-piece format in step 2.
+2. Two-piece format for a new subject. One draft, two parts:
+   - Top: the header message, formatted, short. An emoji, a bold title, and one line on what the thread is for. Bold is **double asterisks**: `slack_send_message_draft` reads standard markdown, so a single *asterisk* shows as italics. This becomes the top-level post. This holds for a new thread in any channel, internal or community.
+   - A blank line, then the thread message: the full content, with tags, numbers and asks. [YOUR_FIRST_NAME] posts the header, opens its thread, and pastes this part as the first reply.
    - Write nothing between the two parts that must be deleted: no labels such as "Header" or "Thread".
-   - Formatting: link names; do not paste raw addresses. Group a long list under short bold labels.
-3. Voice: read `skills/my-writing-voice/SKILL.md`. Mention people by their real user id from the user search of the connector; never guess an id.
-4. Where the draft goes: in the channel or direct message where it will be sent. If the tool says a draft exists there already, say so in the memo and put the text in the memo.
-5. In the memo: the link of the channel or direct message, whether it is a reply or a two-piece draft, and the full text to paste, every time, also when the draft was created. A draft can come up blank, so the memo text is the fallback.
+   Example (made up), a post to a teammate in a project channel:
+
+   ":newspaper: **Newsletter feeds for the reading tool**: the sources we get that aren't on the list yet
+
+   @Sam here are the newsletters we subscribe to that aren't on Robin's list yet, with RSS links: (grouped bullets, each name a hyperlink)"
+
+   When [YOUR_FIRST_NAME] asks to "rewrite it in the channel with the notation" or similar, that means this two-piece format as a new post, not a reply in an old thread.
+   Formatting: hyperlink names instead of pasting raw addresses, group long lists under short bold labels, and leave out anything [YOUR_FIRST_NAME] says to drop.
+3. Voice: read `skills/my-writing-voice/SKILL.md`, its section on team posts in particular. Tag people with `<@USERID>` from `slack_search_users`; never guess an id.
+4. Where the draft goes: in the channel or DM where it will be sent. Slack allows one attached draft per channel and agents cannot edit or delete a draft, so if `draft_already_exists` comes back, say so in the memo and put the text in the memo instead.
+5. In the memo: the channel or DM link, whether it is a reply or a two-piece draft, and the full text to paste, every time, even when the draft was created. A draft can come up blank or vanish in the Slack app, and agents cannot read drafts to check, so the memo text is the fallback. If a draft you made earlier is missing, say what you know and that you do not know why; never only "no longer in Slack".
 
 ## Done when
 
-- The draft sits in the channel or direct message it is for, or the memo says why it could not.
+- The draft sits in the channel or DM it is for, or the memo says why it could not.
 - A new subject has a header line, a blank line, then the thread message, and no labels between them.
-- Every mention is a real user id; every link is a linked name.
+- Every tag is a real `<@USERID>`; every link is a hyperlinked name.
 - The memo has the link, the kind (reply or two-piece), and the full text.
 
 ## Pitfalls
 
+- A reply in an old thread when the two-piece format was asked for.
 - Labels such as "Header" or "Thread" that must be deleted.
-- Raw addresses in the place of linked names; a long list that is not grouped.
+- A single asterisk for bold, which shows as italics.
+- Raw addresses instead of hyperlinked names; a long list not grouped.
 - A guessed user id.
-- A memo with links only and no text to paste.
-- Items the teammate cannot act on. Leave them out and keep them as tasks for [YOUR_FIRST_NAME].
+- A memo with links only and no paste text: a blank draft then costs a round trip.
+- Items the teammate cannot act on: things [YOUR_FIRST_NAME] does alone or wants for later. Leave them out and keep them as tasks for [YOUR_FIRST_NAME] in [TASK_MANAGER] instead.

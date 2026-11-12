@@ -22,8 +22,13 @@ The agent that sends the review memo also does the follow-up when [YOUR_FIRST_NA
    - **Private to bring up today**: for each of today's meetings, the open private rows of `people/_to-cover.md` (the ones that cannot go on the invite): the meeting, the item, why, the source link. Then the rows marked "must cover".
    - **People merged** in last night's sync, from `people/_merged/merges.md`: one line each, and the possible pairs. Ask to flag a wrong one; undo a merge that is flagged.
    - **Emails to answer**: the threads tagged `needs you:` in last night's `email/` sections that still have no answer, oldest first, at most 8: the sender, the subject, the days waiting, the link, and the edit link of the draft if one exists.
-   - **Ticked as done**, and **Done? Reply yes to tick**, from step 2 and from step 9b of the nightly sync.
+   - **Ticked as done**, and **Done? Reply yes to tick**, from step 2 of this review.
+   - **Applicants to look at** (only when [PROGRAM_NAME] takes rolling applications): follow `skills/agent/application-rolling-review`. Each new strong applicant with the link to their record, then the new maybes in one line each. The skill keeps the records it already rated in `scripts/applications-flagged.md`.
+   - **What last night's sync changed in tasks**, from the Pending table of `scripts/task-predictions.md`: one numbered line per change, with the task link, what changed and the one-line reason. Ask: "Reply with the numbers that were wrong, and why."
+   - **Last week by project** (Mondays only, if [YOUR_FIRST_NAME] tracks time with [TIME_TRACKER]): the hours of the past Monday to Sunday per project of `me/time-tracking-projects.md`, each as a share of tracked time, next to its target. Skip it when the time tracker is not connected.
 5. Keep it short. No memo when nothing is overdue, nothing is due this week, and there is no free time to block: close the review memo with "nothing due".
+
+The verdicts: when [YOUR_FIRST_NAME] replies, write a verdict on each row of the Pending table of `scripts/task-predictions.md`: right, or wrong with the reason in the words of [YOUR_FIRST_NAME]. Rows not mentioned are right. Undo each wrong change the same day. Move the rows to the Done table, and update "What I have learned": a short rule for each pattern the reasons show, merged with the rules there. Keep that section under 30 lines.
 
 Rules:
 
